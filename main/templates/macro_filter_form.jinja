@@ -1,0 +1,188 @@
+{% macro filter_form(form) %}
+    <form id='mainForm' method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Filter</legend>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form.name.label(class="form-control-label") }}
+                        {% if form.name.errors %}
+                            {{ form.name(class="form-control form-control-sm is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.name.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.name(class="form-control form-control-sm ") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-3">
+                        {{ form.age_lower.label(class="form-control-label") }}
+                        {% if form.age_lower.errors %}
+                            {{ form.age_lower(class="form-control form-control-sm is-invalid") }}
+                            <small class="form-text text-muted">Min</small>
+                            <div class="invalid-feedback">
+                                {% for error in form.age_lower.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.age_lower(class="form-control form-control-sm") }}
+                            <small class="form-text text-muted">Min</small>
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-3">
+                        {{ form.age_upper.label(class="form-control-label") }}
+                        {% if form.age_upper.errors %}
+                            {{ form.age_upper(class="form-control form-control-sm is-invalid") }}
+                            <small class="form-text text-muted">Max</small>
+                            <div class="invalid-feedback">
+                                {% for error in form.age_upper.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.age_upper(class="form-control form-control-sm") }}
+                            <small class="form-text text-muted">Max</small>
+                        {% endif %}
+                    </div>
+                </div>
+                <h5>Exhibiting which symptoms? </h5>
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        {{ form.symptoms.cough(class="form-check-input ") }}
+                        {{ form.symptoms.cough.label(class="form-check-label small") }}
+                    </div>
+                    <div class="form-check form-check-inline">
+                            {{ form.symptoms.fever(class="form-check-input") }}
+                            {{ form.symptoms.fever.label(class="form-check-label small") }}
+                    </div>
+                    <div class="form-check form-check-inline">
+                            {{ form.symptoms.headache(class="form-check-input ") }}
+                            {{ form.symptoms.headache.label(class="form-check-label small") }}
+                    </div>
+                    <div class="form-check form-check-inline">
+                            {{ form.symptoms.body_aches(class="form-check-input ") }}
+                            {{ form.symptoms.body_aches.label(class="form-check-label small") }}
+                    </div>
+                    <div class="form-check form-check-inline">
+                            {{ form.symptoms.fatigue(class="form-check-input ") }}
+                            {{ form.symptoms.fatigue.label(class="form-check-label small") }}
+                    </div>
+                    <div class="form-check form-check-inline">
+                            {{ form.symptoms.difficulty_breathing(class="form-check-input") }}
+                            {{ form.symptoms.difficulty_breathing.label(class="form-check-label small") }}
+                    </div>
+                    <div class="form-check form-check-inline">
+                            {{ form.symptoms.runny_nose(class="form-check-input ") }}
+                            {{ form.symptoms.runny_nose.label(class="form-check-label small") }}
+                    </div>
+                    <div class="form-check form-check-inline">
+                            {{ form.symptoms.stomach(class="form-check-input ") }}
+                            {{ form.symptoms.stomach.label(class="form-check-label small") }}
+                    </div>
+                    <div class="form-check form-check-inline">
+                            {{ form.symptoms.sore_throat(class="form-check-input ") }}
+                            {{ form.symptoms.sore_throat.label(class="form-check-label small") }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                        {{ form.body_temp_lower.label(class="form-control-label", style="font-size: 12px;") }}
+                        {% if form.body_temp_lower.errors %}
+                            {{ form.body_temp_lower(class="form-control form-control-sm is-invalid") }}
+                            <small class="form-text text-muted">Min</small>
+                            <div class="invalid-feedback">
+                                {% for error in form.body_temp_lower.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.body_temp_lower(class="form-control form-control-sm") }}
+                            <small class="form-text text-muted">Min</small>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        {{ form.body_temp_upper.label(class="form-control-label", style="font-size: 12px;") }}
+                        {% if form.body_temp_upper.errors %}
+                            {{ form.body_temp_upper(class="form-control form-control-sm is-invalid") }}
+                            <small class="form-text text-muted">Max</small>
+                            <div class="invalid-feedback">
+                                {% for error in form.body_temp_upper.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.body_temp_upper(class="form-control form-control-sm ") }}
+                            <small class="form-text text-muted">Max</small>
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-2">
+                        {{ form.difficulty_lower.label(class="form-control-label", style="font-size: 12px;") }}
+                        {% if form.difficulty_lower.errors %}
+                            {{ form.difficulty_lower(class="form-control form-control-sm is-invalid") }}
+                            <small class="form-text text-muted">Min</small>
+                            <div class="invalid-feedback">
+                                {% for error in form.difficulty_lower.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.difficulty_lower(class="form-control form-control-sm") }}
+                            <small class="form-text text-muted">Min</small>
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-2">
+                        {{ form.difficulty_upper.label(class="form-control-label", style="font-size: 12px;") }}
+                        {% if form.difficulty_upper.errors %}
+                            {{ form.difficulty_upper(class="form-control form-control-sm is-invalid") }}
+                            <small class="form-text text-muted">Max</small>
+                            <div class="invalid-feedback">
+                                {% for error in form.difficulty_upper.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.difficulty_upper(class="form-control form-control-sm") }}
+                            <small class="form-text text-muted">Max</small>
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-2">
+                        {{ form.how_long_lower.label(class="form-control-label", style="font-size: 12px;") }}
+                        {% if form.how_long_lower.errors %}
+                            {{ form.how_long_lower(class="form-control form-control-sm is-invalid") }}
+                            <small class="form-text text-muted">Min</small>
+                            <div class="invalid-feedback">
+                                {% for error in form.how_long_lower.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.how_long_lower(class="form-control form-control-sm") }}
+                            <small class="form-text text-muted">Min</small>
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-2">
+                        {{ form.how_long_upper.label(class="form-control-label") }}
+                        {% if form.how_long_upper.errors %}
+                            {{ form.how_long_upper(class="form-control form-control-sm is-invalid") }}
+                            <small class="form-text text-muted">Max</small>
+                            <div class="invalid-feedback">
+                                {% for error in form.how_long_upper.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.how_long_upper(class="form-control form-control-sm") }}
+                            <small class="form-text text-muted">Max</small>
+                        {% endif %}
+                    </div>
+                </div>
+            </fieldset>
+             <div class="form-group">
+                {{ form.search(class="btn btn-outline-info") }}
+            </div>
+        </form>
+{% endmacro %}

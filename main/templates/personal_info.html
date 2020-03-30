@@ -1,0 +1,361 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form id='mainForm' method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Personal Info</legend>
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                        {{ form.first_name.label(class="form-control-label") }}
+                        {% if form.first_name.errors %}
+                            {{ form.first_name(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.first_name.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.first_name(class="form-control ") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-5">
+                        {{ form.last_name.label(class="form-control-label") }}
+                        {% if form.last_name.errors %}
+                            {{ form.last_name(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.last_name.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.last_name(class="form-control ") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-2">
+                    {{ form.age.label(class="form-control-label") }}
+                    {% if form.age.errors %}
+                        {{ form.age(class="form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.age.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.age(class="form-control") }}
+                    {% endif %}
+                </div>
+                </div>
+                 <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form.contact.email.label(class="form-control-label") }}
+                        {% if form.contact.email.errors %}
+                            {{ form.contact.email(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.contact.email.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.contact.email(class="form-control ") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form.contact.phone.label(class="form-control-label") }}
+                        {% if form.contact.phone.errors %}
+                            {{ form.contact.phone(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.contact.phone.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.contact.phone(class="form-control") }}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-8">
+                        {{ form.contact.address.label(class="form-control-label") }}
+                        {% if form.contact.address.errors %}
+                            {{ form.contact.address(class="form-control  is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.contact.address.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.contact.address(class="form-control") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-4">
+                        {{ form.contact.apt.label(class="form-control-label") }}
+                        {% if form.contact.apt.errors %}
+                            {{ form.contact.apt(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.contact.apt.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.contact.apt(class="form-control ") }}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form.contact.city.label(class="form-control-label") }}
+                        {% if form.contact.city.errors %}
+                            {{ form.contact.city(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.contact.city.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.contact.city(class="form-control ") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-2">
+                        {{ form.contact.state.label(class="form-control-label") }}
+                        {% if form.contact.state.errors %}
+                            {{ form.contact.state(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.contact.state.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.contact.state(class="form-control ") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-4">
+                        {{ form.contact.zip_code.label(class="form-control-label") }}
+                        {% if form.contact.zip_code.errors %}
+                            {{ form.contact.zip_code(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.contact.zip_code.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.contact.zip_code(class="form-control ") }}
+                        {% endif %}
+                    </div>
+                </div>
+                {#       work form     #}
+                <br> <br>
+                <legend class="border-bottom mb-4">Work Info</legend>
+                <div class="form-group">
+                    {{ form.employer.label(class="form-control-label") }}
+                    {% if form.employer.errors %}
+                        {{ form.employer(class="form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.employer.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.employer(class="form-control ") }}
+                    {% endif %}
+                </div>
+                 <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form.employer_contact.email.label(class="form-control-label") }}
+                        {% if form.employer_contact.email.errors %}
+                            {{ form.employer_contact.email(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.employer_contact.email.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.employer_contact.email(class="form-control ") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form.employer_contact.phone.label(class="form-control-label") }}
+                        {% if form.employer_contact.phone.errors %}
+                            {{ form.employer_contact.phone(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.employer_contact.phone.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.employer_contact.phone(class="form-control") }}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-8">
+                        {{ form.employer_contact.address.label(class="form-control-label") }}
+                        {% if form.employer_contact.address.errors %}
+                            {{ form.employer_contact.address(class="form-control  is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.employer_contact.address.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.employer_contact.address(class="form-control") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-4">
+                        {{ form.employer_contact.apt.label(class="form-control-label") }}
+                        {% if form.employer_contact.apt.errors %}
+                            {{ form.employer_contact.apt(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.employer_contact.apt.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.employer_contact.apt(class="form-control ") }}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form.employer_contact.city.label(class="form-control-label") }}
+                        {% if form.employer_contact.city.errors %}
+                            {{ form.employer_contact.city(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.employer_contact.city.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.employer_contact.city(class="form-control ") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-2">
+                        {{ form.employer_contact.state.label(class="form-control-label") }}
+                        {% if form.employer_contact.state.errors %}
+                            {{ form.employer_contact.state(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.employer_contact.state.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.employer_contact.state(class="form-control ") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-4">
+                        {{ form.employer_contact.zip_code.label(class="form-control-label") }}
+                        {% if form.employer_contact.zip_code.errors %}
+                            {{ form.employer_contact.zip_code(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.employer_contact.zip_code.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.employer_contact.zip_code(class="form-control ") }}
+                        {% endif %}
+                    </div>
+                </div>
+                {#       symptoms form     #}
+                <br> <br>
+                <legend class="border-bottom mb-4">Tell us about your symptoms </legend>
+
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        {{ form.symptoms.cough(class="form-check-input ") }}
+                        {{ form.symptoms.cough.label(class="form-check-label") }}
+                    </div>
+                    <div class="form-check form-check-inline">
+                            {{ form.symptoms.fever(class="form-check-input", onclick="toggle(this,'howHot')") }}
+                            {{ form.symptoms.fever.label(class="form-check-label") }}
+                    </div>
+                    <div class="form-check form-check-inline">
+                            {{ form.symptoms.headache(class="form-check-input ") }}
+                            {{ form.symptoms.headache.label(class="form-check-label") }}
+                    </div>
+                    <div class="form-check form-check-inline">
+                            {{ form.symptoms.body_aches(class="form-check-input ") }}
+                            {{ form.symptoms.body_aches.label(class="form-check-label") }}
+                    </div>
+                    <div class="form-check form-check-inline">
+                            {{ form.symptoms.fatigue(class="form-check-input ") }}
+                            {{ form.symptoms.fatigue.label(class="form-check-label") }}
+                    </div>
+                    <div class="form-check form-check-inline">
+                            {{ form.symptoms.difficulty_breathing(class="form-check-input", onclick="toggle(this,'howDifficult')") }}
+                            {{ form.symptoms.difficulty_breathing.label(class="form-check-label") }}
+                    </div>
+                    <div class="form-check form-check-inline">
+                            {{ form.symptoms.runny_nose(class="form-check-input ") }}
+                            {{ form.symptoms.runny_nose.label(class="form-check-label") }}
+                    </div>
+                    <div class="form-check form-check-inline">
+                            {{ form.symptoms.stomach(class="form-check-input ") }}
+                            {{ form.symptoms.stomach.label(class="form-check-label") }}
+                    </div>
+                    <div class="form-check form-check-inline">
+                            {{ form.symptoms.sore_throat(class="form-check-input ") }}
+                            {{ form.symptoms.sore_throat.label(class="form-check-label") }}
+                    </div>
+                    <br><br>
+                    <div id="howHot">
+                        {{ form.symptoms.how_hot.label(class="form-control-label") }}
+                        {% if form.symptoms.how_hot.errors %}
+                            {{ form.symptoms.how_hot(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.symptoms.how_hot.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.symptoms.how_hot(class="form-control ",value=90) }}
+                        {% endif %}
+                    </div>
+                    <div  id="howDifficult">
+                        {{ form.symptoms.how_difficult.label(class="form-control-label") }}
+                        {% if form.symptoms.how_difficult.errors %}
+                            {{ form.symptoms.how_difficult(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.symptoms.how_difficult.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.symptoms.how_difficult(class="form-control ",value=0) }}
+                        {% endif %}
+                    </div>
+                    {{ form.symptoms.how_long.label(class="form-control-label") }}
+                    {% if form.symptoms.how_long.errors %}
+                        {{ form.symptoms.how_long(class="form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.symptoms.how_long.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.symptoms.how_long(class="form-control ") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+{% block newjs %}
+    <script>
+        let checkboxFever = $('#symptoms-fever'),
+            checkboxDifficult = $('#symptoms-difficulty_breathing'),
+            TempBlock = $('#howHot');
+            DifficultBlock = $('#howDifficult');
+        TempBlock.hide(); DifficultBlock.hide();
+
+        function toggle(elm, setVisible){
+           let dv = document.getElementById(setVisible);
+           dv.style.display = elm.checked ? "block" : "none";
+           $("#" + setVisible + " :input").attr('required', elm.checked)
+        }
+    </script>
+{#    <script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='formcontroller.js') }}"/>#}
+{% endblock newjs %}
